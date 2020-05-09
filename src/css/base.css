@@ -1,0 +1,26 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 800px;
+}
+
+::selection {
+  background: #ff4c78;
+  color: #fff;
+}
+
+.move-window {
+  -webkit-app-region: drag;
+}
+.unselect {
+  -webkit-user-select: none;
+}
+webview{
+  width: 1400px;
+  height: 800px;
+  display: flex;
+}
