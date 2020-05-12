@@ -1,12 +1,14 @@
 {
-  "name": "daidaidj",
+  "name": "daidai",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "带带电竞-好玩的小姐姐小哥哥都在这里哟~",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-win": "electron-builder build --win --x64",
+    "build": "electron-packager . daidai --out build --arch=x64 --overwrite --ignore=node_modules"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/caitianxu/electron-quick-start",
   "keywords": [
     "Electron",
     "quick",
@@ -14,9 +16,31 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "武汉苇渡文化传媒有限公司",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^8.2.5"
+    "electron": "^8.2.5",
+    "electron-packager": "^14.2.1",
+    "electron-builder": "^22.6.0"
+  },
+  "build": {
+    "productName": "带带",
+    "appId": "org.develar.daidai",
+    "icon": "./resources/icon.ico",
+    "nsis": {
+      "oneClick": false, 
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./resources/icon.ico", 
+      "uninstallerIcon": "./resources/icon.ico",
+      "installerHeader": "./resources/icon.ico",
+      "installerHeaderIcon": "./resources/icon.ico"
+    },
+    "win": {
+      "target": ["nsis","zip"]
+    },
+    "extraResources":[{
+      "from":"resources/",
+      "to":"resources/"
+    }]
   }
 }
