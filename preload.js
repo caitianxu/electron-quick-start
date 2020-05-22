@@ -1,5 +1,15 @@
-// All of the Node.js APIs are available in the preload process.
-// It has the same sandbox as a Chrome extension.
+const { ipcRenderer } = require('electron');
+
 window.addEventListener('DOMContentLoaded', () => {
-  
-})
+  window.electronEvents = {
+    minimize: function () {
+      ipcRenderer.send('web-minimize');
+    },
+    quit: function () {
+      ipcRenderer.send('web-quit');
+    },
+    openDevTools: function () {
+      ipcRenderer.send('open-dev-tools');
+    },
+  };
+});
